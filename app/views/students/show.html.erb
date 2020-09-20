@@ -3,17 +3,20 @@
 <h2>Age: <%= @student.age %></h2>
 
 <h2>Courses:</h2>
-<%= button_to "Register for a Course", new_enrollment_path, method: :get %>
 
 <ul>
   <% @student.enrollments.each do |enrollment| %>
     <li><%= enrollment.course.name %></li>
     <%= button_to "Drop Enrollment", enrollment_path(enrollment), method: :delete %>
+    <br />
   <% end %>
 </ul>
 
+<h2>Options:</h2>
+<%= button_to "Register for a Course", new_enrollment_path, method: :get %>
+<br />
 <%= button_to "Edit Student", edit_student_path, method: :get %>
-
+<br />
 <%= button_to "Delete Student", student_path, method: :delete %>
-
-<%= link_to "Destroy Student", student_path %>
+<br />
+<%= button_to "Back to Students List", students_path, method: :get %>
